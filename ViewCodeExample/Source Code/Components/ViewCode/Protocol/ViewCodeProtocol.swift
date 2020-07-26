@@ -1,4 +1,4 @@
-public protocol ViewCodeProtocol {
+protocol ViewCodeProtocol {
     /// 1st step in ViewCode configuration. This step can be used to override or prepare things in the `UIView` class. Runs during `init()`.
     func viewCodeInitialConfiguration()
     
@@ -32,7 +32,7 @@ public protocol ViewCodeProtocol {
 
 // MARK: - Template Method Implementation
 
-public extension ViewCodeProtocol {
+extension ViewCodeProtocol {
     func setupViewCode() {
         viewCodeInitialConfiguration()
         viewCodeConstraints()
