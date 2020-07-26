@@ -2,18 +2,18 @@ import XCTest
 @testable import ViewCodeExample
 
 final class ViewCodeControllerTests: XCTestCase {
-    var sut: ViewCodeController<MockViewCode>!
+    var sut: BaseViewCodeController<MockViewCode>!
     var mockViewCode: MockViewCode!
     
     func testViewCodeIsInitializedProperly() {
         mockViewCode = MockViewCode()
-        sut = ViewCodeController<MockViewCode>.init(viewCode: mockViewCode)
+        sut = BaseViewCodeController<MockViewCode>.init(viewCode: mockViewCode)
         XCTAssertEqual(mockViewCode, sut.viewCode)
         XCTAssertEqual(mockViewCode, sut.view)
     }
     
     func testViewCodeIsInstantiatedProperly() {
-        sut = ViewCodeController<MockViewCode>.instantiate()
+        sut = BaseViewCodeController<MockViewCode>.instantiate()
         XCTAssertNotNil(sut.viewCode)
         XCTAssertEqual(sut.viewCode, sut.view)
     }

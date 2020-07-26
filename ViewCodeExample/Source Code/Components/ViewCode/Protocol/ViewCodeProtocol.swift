@@ -1,8 +1,8 @@
 public protocol ViewCodeProtocol {
-    /// 1st step in ViewCode configuration. This step can be used to override or prepare things in the `UIView` class.
+    /// 1st step in ViewCode configuration. This step can be used to override or prepare things in the `UIView` class. Runs during `init()`.
     func viewCodeInitialConfiguration()
     
-    /// 2nd step in ViewCode configuration. This step configures constraints of a given `View` and its `Subviews`.
+    /// 2nd step in ViewCode configuration. This step configures constraints of a given `View` and its `Subviews`. Runs during `init()`.
     ///
     ///     func viewCodeConstraints() {
     ///       view.translatesAutoresizingMaskIntoConstraints = false
@@ -15,7 +15,7 @@ public protocol ViewCodeProtocol {
     ///     }
     func viewCodeConstraints()
     
-    /// 3rd step in ViewCode configuration. Can set values based on frame and bounds sizes.
+    /// 3rd step in ViewCode configuration. Can set values based on frame and bounds sizes. Runs during `init()` and `layoutSubviews()`.
     ///
     ///     func viewCodeAdditionalConfigurations() {
     ///       button.layer.cornerRadius = button.frame.height / 2

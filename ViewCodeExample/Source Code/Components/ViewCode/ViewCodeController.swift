@@ -1,6 +1,8 @@
 import UIKit
 
-class ViewCodeController<ViewCode>: UIViewController where ViewCode: UIView {
+typealias ViewCodeController<ViewCode> = BaseViewCodeController<ViewCode> & ViewCodeControllerProtocol where ViewCode: UIView
+
+class BaseViewCodeController<ViewCode>: UIViewController where ViewCode: UIView {
     let viewCode: ViewCode
     
     required init(viewCode: ViewCode) {
@@ -14,6 +16,12 @@ class ViewCodeController<ViewCode>: UIViewController where ViewCode: UIView {
     
     override func loadView() {
         view = viewCode
+        
+        guard let self = self as? ViewCodeController<ViewCode> else {
+            return
+        }
+        
+        self.viewCodeConfiguration()
     }
     
     /// Produces a ViewCodeController with the assigned ViewCode generic already instantiated and injected on the ViewController.
