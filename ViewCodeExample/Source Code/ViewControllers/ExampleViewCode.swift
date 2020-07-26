@@ -14,14 +14,6 @@ class ExampleViewCode: ViewCode {
         view.alpha = 0
         return view
     }()
-    
-    init() {
-        super.init(frame: .zero)
-    }
-    
-    required init?(coder aDecoder: NSCoder) {
-        fatalError("Should not be used. ViewCode class.")
-    }
 }
 
 // MARK: - ViewCode Protocol
