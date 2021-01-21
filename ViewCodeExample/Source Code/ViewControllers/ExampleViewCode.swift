@@ -3,7 +3,7 @@ import UIKit
 class ExampleViewCode: ViewCode {
     lazy var button: UIButton = {
         let button = UIButton(type: .system)
-        button.setTitle("Test", for: .normal)
+        button.setTitle("Button", for: .normal)
         button.tintColor = .red
         return button
     }()
@@ -11,9 +11,19 @@ class ExampleViewCode: ViewCode {
     lazy var roundView: UIView = {
         let view = UIView()
         view.backgroundColor = .black
-        view.alpha = 0
+        view.alpha = 1
         return view
     }()
+}
+
+// MARK: - Actions
+
+extension ExampleViewCode {
+    func toggleRoundView() {
+        UIView.animate(withDuration: 0.25) {
+            self.roundView.alpha = self.roundView.alpha == 1 ? 0 : 1
+        }
+    }
 }
 
 // MARK: - ViewCode Protocol

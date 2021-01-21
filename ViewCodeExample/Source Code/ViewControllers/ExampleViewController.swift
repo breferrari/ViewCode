@@ -17,8 +17,6 @@ extension ExampleViewController {
 private extension ExampleViewController {
     @objc
     func didTapButton(_ sender: UIButton) {
-        UIView.animate(withDuration: 0.25) {
-            self.viewCode.roundView.alpha = self.viewCode.roundView.alpha == 1 ? 0 : 1
-        }
+        viewCode.toggleRoundView()
     }
 }
